@@ -57,10 +57,11 @@ class LoginExternalClass {
                                 
       }
      
-        
+        //method to check username format
          public boolean checkUsername(String username) {
         return username.contains("_") && username.length() == 5;
     }
+         // method to check password complexity
   public boolean checkPasswordComplexity(String password) {
         return password.length() >= 8 &&
                Pattern.compile("[A-Z]").matcher(password).find() &&
@@ -68,7 +69,7 @@ class LoginExternalClass {
                Pattern.compile("[^a-zA-Z0-9]").matcher(password).find();
     }
  
-        
+        // method to register user
 
         public  String registerUser( String username, String password, String firstName, String lastName){
         if (!checkUsername(username)) {
@@ -78,11 +79,11 @@ class LoginExternalClass {
             return "password is not correctly formatted, please ensure that the password contains at least 8 characters, a capital letter, a number, a special character";
         }
   
-        
    users.add(new LoginExternalClass(username, password, firstName, lastName));
     return "Username and password successfully captured.";
 }
-    
+            // method to login user
+
         public boolean loginUser(String username, String password) {
         for (LoginExternalClass user : users) {
             if (user != null && user.getUsername().equals(username) && user.getPassword().equals(password)) {
@@ -91,7 +92,7 @@ class LoginExternalClass {
         }
         return false;
     }
-
+// method to return login status
     public String returnLoginStatus(String username, String password) {
         LoginExternalClass loggedInUser = null; 
 // To hold the user if login is successful

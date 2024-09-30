@@ -16,8 +16,9 @@ public class POEPart1 {
            Scanner sc = new Scanner(System.in);
            
                
-                LoginExternalClass login = new LoginExternalClass("Gelo_w","Blessing.34","Thlologelo","Mohlala");
+                LoginExternalClass login = new LoginExternalClass("Ge_lo","Blessing.34","Thlologelo","Mohlala");
              login.display();
+             //Registration
            while(true){
             System.out.println("1. Register");
             
