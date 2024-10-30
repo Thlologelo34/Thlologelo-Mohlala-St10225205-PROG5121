@@ -17,8 +17,8 @@ public class LoginExternalClassTest {
 
     @BeforeEach
     public void setUp() {
-        user = new LoginExternalClass("Ge_lo", "Blessing.34", "Thlologelo", "Mohlala");
-        user.registerUser("Gelo_w", "Blessing.34", "Thlologelo", "Mohlala");
+        user = new LoginExternalClass("Kyl_1", "C&&sec@ke99!", "Thlologelo", "Mohlala");
+        user.registerUser("kyle!!!!!!!", "Password", "Thlologelo", "Mohlala");
     }
 
     @AfterEach
@@ -28,12 +28,12 @@ public class LoginExternalClassTest {
 
     @Test
     public void testGetUsername() {
-        assertTrue(user.getUsername().equals("Ge_lo"));
+        assertTrue(user.getUsername().equals("Kyl_1"));
     }
 
     @Test
     public void testGetPassword() {
-        assertTrue(user.getPassword().equals("Blessing.34"));
+        assertTrue(user.getPassword().equals("C&&sec@ke99!"));
     }
 
     @Test
@@ -54,12 +54,12 @@ public class LoginExternalClassTest {
     @Test
     
     public void testCheckUsername_Valid() {
-        assertTrue(user.checkUsername("ge_lo"));
+        assertTrue(user.checkUsername("Kyl_1"));
     }
 
     @Test
     public void testCheckUsername_Invalid() {
-        assertFalse(user.checkUsername("abcde")); // No underscore
+        assertFalse(user.checkUsername("kyle!!!!!!!")); // No underscore
         assertFalse(user.checkUsername("abc_def")); // More than 5 characters
                
 
@@ -67,64 +67,64 @@ public class LoginExternalClassTest {
 
     @Test
     public void testCheckPasswordComplexity_Valid() {
-        assertTrue(user.checkPasswordComplexity("Blessing.34"));
+        assertTrue(user.checkPasswordComplexity("C&&sec@ke99!"));
     }
 
     @Test
     public void testCheckPasswordComplexity_Invalid() {
-        assertFalse(user.checkPasswordComplexity("Blessing1234")); // No special character
+        assertFalse(user.checkPasswordComplexity("password")); // No special character
         assertFalse(user.checkPasswordComplexity("blessing@1234")); // No uppercase letter
         assertFalse(user.checkPasswordComplexity("Bless@")); // Less than 8 characters
-        assertTrue(user.checkPasswordComplexity("Blessing.34"));// password meet passwordComplexity
+        assertTrue(user.checkPasswordComplexity("C&&sec@ke99!"));// password meet passwordComplexity
     }
 // register user test
     @Test
     public void testRegisterUser_Valid() {
-        LoginExternalClass instance = new LoginExternalClass("Ge_lo", "Blessing.34", "Thlologelo", "Mohlala");
-        String result = instance.registerUser("Ge_lo", "Blessing.34", "Thlologelo", "Mohlala");
+        LoginExternalClass instance = new LoginExternalClass("Kyl_1", "C&&sec@ke99!", "Thlologelo", "Mohlala");
+        String result = instance.registerUser("Kyl_1", "C&&sec@ke99!", "Thlologelo", "Mohlala");
         assertTrue(result.equals("Username and password successfully captured."));
     }
 
     @Test
     public void testRegisterUser_InvalidUsername() {
-        String result = user.registerUser("gelow", "Blessing", "Thlolo", "Mohlala");
+        String result = user.registerUser("kyle!!!!!!!", "Password", "Thlolo", "Mohlala");
         assertEquals("username is not correctly formatted, please ensure that your username contains an underscore and is not more than 5 characters in length",result);
     }
 
     @Test
     public void testRegisterUser_InvalidPassword() {
-        LoginExternalClass instance = new LoginExternalClass("Ge_lo", "Blessing", "Thlologelo", "Mohlala");
-        String result = instance.registerUser("Ge_lo", "Blessing.34", "Thlologelo", "Mohlala");
+        LoginExternalClass instance = new LoginExternalClass("Kyl_1", "password", "Thlologelo", "Mohlala");
+        String result = instance.registerUser("Kyl_1", "C&&sec@ke99!", "Thlologelo", "Mohlala");
         assertFalse(result.equals("password is not correctly formatted, please ensure that the password contains at least 8 characters, a capital letter, a number, a special character"));
     }
 // login test
     @Test
     public void testLoginUser_Successful() {
-                LoginExternalClass instance = new LoginExternalClass("Ge_lo", "Blessing.34", "Thlologelo", "Mohlala");
-        String result = instance.registerUser("Ge_lo", "Blessing.34", "Thlologelo", "Mohlala");
+                LoginExternalClass instance = new LoginExternalClass("Kyl_1", "C&&sec@ke99!", "Thlologelo", "Mohlala");
+        String result = instance.registerUser("Kyl_1", "C&&sec@ke99!", "Thlologelo", "Mohlala");
 
         assertFalse(result.equals("Successful login"));
     }
 
     @Test
     public void testLoginUser_Failed() {
-          LoginExternalClass instance = new LoginExternalClass("Ge_lo", "Blessing", "Thlologelo", "Mohlala");
-        String result = instance.registerUser("Ge_lo", "Blessing.34", "Thlologelo", "Mohlala");
+          LoginExternalClass instance = new LoginExternalClass("", "password", "Thlologelo", "Mohlala");
+        String result = instance.registerUser("Kyl_1", "C&&sec@ke99!", "Thlologelo", "Mohlala");
 
         assertFalse(result.equals("Falsed login"));
     }
 //   return login Status check
     @Test
     public void testReturnLoginStatus_Success() {
-                  LoginExternalClass instance = new LoginExternalClass("Ge_lo", "Blessing", "Thlologelo", "Mohlala");
+                  LoginExternalClass instance = new LoginExternalClass("Kyl_1", "password", "Thlologelo", "Mohlala");
 
-        String result = instance.returnLoginStatus("Ge_lo", "Blessing.34");
+        String result = instance.returnLoginStatus("Kyl_1", "C&&sec@ke99!");
         assertFalse(result.equals("Welcome Thlologelo, Mohlala! It is great to see you again."));
     }
 
    @Test
 public void testReturnLoginStatus_Failure() {
-    String result = user.returnLoginStatus("gelo", "Blessing");
+    String result = user.returnLoginStatus("kyle!!!!!!", "password");
     assertEquals("Username or password incorrect, please try again.", result);
 }
     }
