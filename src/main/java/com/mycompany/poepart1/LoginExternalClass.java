@@ -4,6 +4,7 @@
  */
 package com.mycompany.poepart1;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -12,6 +13,9 @@ import java.util.regex.Pattern;
  *
  * @author RC_Student_lab
  */
+
+              // Class to manage user login and registration processes.This class handles user data and validates input for login.
+ 
 class LoginExternalClass {
     private String username;
     private String password;
@@ -19,6 +23,8 @@ class LoginExternalClass {
     private String lastName;
     private List <LoginExternalClass> users;
     
+    
+    // Constructor to initialize user details and user list
   LoginExternalClass(String username, String password, String firstName, String lastName){
           this.username = username;
            this.password = password;
@@ -29,26 +35,31 @@ class LoginExternalClass {
 
    
 
-      
+             
+    // Getter method to retrieve the username
     
     public String getUsername() {
         return username;
     }
+             // Getter method to retrieve the password
 
     public String getPassword() {
         return password;
     }
+                        // Getter method to retrieve the first name
 
  public String getFirstName(){
     return firstName; 
- }
+ }                                 // Getter method to retrieve the last name
+
            public String getLastName(){
                return lastName;
            }
    public String displayRegistration(){
           return "Registration";
  }
-    
+                         // Method to display user information in the console
+
      public void display(){
             System.out.println("Username: " + username);
               System.out.println("Password: " + password);
@@ -59,9 +70,9 @@ class LoginExternalClass {
      
         //method to check username format
          public boolean checkUsername(String username) {
-        return username.contains("_") && username.length() == 5;
+        return username.contains("_") && username.length() <= 5;
     }
-         // method to check password complexity
+                        // Method to check the complexity requirements of the password
   public boolean checkPasswordComplexity(String password) {
         return password.length() >= 8 &&
                Pattern.compile("[A-Z]").matcher(password).find() &&
@@ -69,7 +80,7 @@ class LoginExternalClass {
                Pattern.compile("[^a-zA-Z0-9]").matcher(password).find();
     }
  
-        // method to register user
+                       // Method to register a new user with validation check
 
         public  String registerUser( String username, String password, String firstName, String lastName){
         if (!checkUsername(username)) {
