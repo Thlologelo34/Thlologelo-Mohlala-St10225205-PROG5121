@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class LoginTest {
     
     private Login user;
-
+    // Set up a default user before each test.
     @BeforeEach
     public void setUp() {
         user = new Login("Kyl_1", "C&&sec@ke99!", "Thlologelo", "Mohlala");
@@ -47,6 +47,8 @@ public class LoginTest {
     }
 
     @Test
+    //        // Ensure that registration display returns the correct message
+
     public void testDisplayRegistration() {
         assertTrue(user.displayRegistration().equals("Registration"));
     }
@@ -69,6 +71,7 @@ public class LoginTest {
     public void testCheckPasswordComplexity_Valid() {
         assertTrue(user.checkPasswordComplexity("C&&sec@ke99!"));
     }
+      // Test with passwords that do not meet complexity requirements
 
     @Test
     public void testCheckPasswordComplexity_Invalid() {
@@ -77,7 +80,8 @@ public class LoginTest {
         assertFalse(user.checkPasswordComplexity("Bless@")); // Less than 8 characters
         assertTrue(user.checkPasswordComplexity("C&&sec@ke99!"));// password meet passwordComplexity
     }
-// register user test
+                   // Test registration with valid username and password
+
     @Test
     public void testRegisterUser_Valid() {
         Login instance = new Login("Kyl_1", "C&&sec@ke99!", "Thlologelo", "Mohlala");
@@ -97,7 +101,8 @@ public class LoginTest {
         String result = instance.registerUser("Kyl_1", "C&&sec@ke99!", "Thlologelo", "Mohlala");
         assertFalse(result.equals("password is not correctly formatted, please ensure that the password contains at least 8 characters, a capital letter, a number, a special character"));
     }
-// login test
+                   // Test login with correct credentials
+
     @Test
     public void testLoginUser_Successful() {
                 Login instance = new Login("Kyl_1", "C&&sec@ke99!", "Thlologelo", "Mohlala");
@@ -113,7 +118,8 @@ public class LoginTest {
 
         assertFalse(result.equals("Falsed login"));
     }
-//   return login Status check
+                 // Verify login status message for successful login
+
     @Test
     public void testReturnLoginStatus_Success() {
                   Login instance = new Login("Kyl_1", "password", "Thlologelo", "Mohlala");
@@ -121,6 +127,7 @@ public class LoginTest {
         String result = instance.returnLoginStatus("Kyl_1", "C&&sec@ke99!");
         assertFalse(result.equals("Welcome Thlologelo, Mohlala! It is great to see you again."));
     }
+                // Verify login status message for failed login
 
    @Test
 public void testReturnLoginStatus_Failure() {

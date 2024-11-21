@@ -13,7 +13,7 @@ public class TaskTest {
 
     private Task task1;
     private Task task2;
-
+           // Set up test objects before each test, Initialize two tasks with predefined values for testing
     @BeforeEach
     public void setUp() {
         task1 = new Task("login feature", 1, "Create login to authenticate users", "Robyn", "Harrison", 8.0, "To Do");
@@ -26,7 +26,7 @@ public class TaskTest {
         task2 = null;
     }
 
-    // Test createTaskID
+       // test that the createTaskID method generates the expected unique task ID.
     @Test
     public void testCreateTaskID_ReturnsExpectedID() {
         String expectedID1 = "LO1SON";
@@ -35,7 +35,8 @@ public class TaskTest {
         assertEquals(expectedID2, task2.createTaskID());
     }
 
-    // Test printTaskDetails
+    // Test that the printTaskDetails method returns a formatted string with all task details.
+     
     @Test
     public void testPrintTaskDetails_ReturnsExpectedDetails() {
         String expectedID1 = task1.createTaskID();
@@ -61,7 +62,7 @@ public class TaskTest {
         assertEquals(expectedDetails2, task2.printTaskDetails());
     }
 
-    // Test getDuration
+    // Test that getDuration returns the correct duration value for a task.
     @Test
     public void testGetDuration_ReturnsExpectedDuration() {
         double expectedDuration = 8.0;
@@ -69,15 +70,15 @@ public class TaskTest {
         assertEquals(expectedDuration, actualDuration, 0.001);
     }
 
-    // Test getTaskName
+    // Test that getTaskName retrieves the correct task name.
     @Test
     public void testGetTaskName_ReturnsExpectedName() {
         String expectedName = "login feature";
         String actualName = task1.getTaskName();
         assertEquals(expectedName, actualName);
     }
-
-    // Test getTaskStatus
+            // Test that getTaskStatus retrieves the correct task status.
+   
     @Test
     public void testGetTaskStatus_ReturnsExpectedStatus() {
         String expectedStatus = "To Do";
@@ -85,7 +86,8 @@ public class TaskTest {
         assertEquals(expectedStatus, actualStatus);
     }
 
-    // Test getDeveloperFirstName
+    // Test that getDeveloperFirstName retrieves the correct first name of the developer.
+     
     @Test
     public void testGetDeveloperFirstName_ReturnsExpectedFirstName() {
         String expectedFirstName = "Robyn";
@@ -93,7 +95,7 @@ public class TaskTest {
         assertEquals(expectedFirstName, actualFirstName);
     }
 
-    // Test getDeveloperLastName
+           // Test that getDeveloperLastName retrieves the correct last name of the developer.
     @Test
     public void testGetDeveloperLastName_ReturnsExpectedLastName() {
         String expectedLastName = "Harrison";
