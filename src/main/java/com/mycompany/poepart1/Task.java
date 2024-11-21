@@ -59,4 +59,15 @@
     public String getTaskName() {
         return taskName;
     }
-}
+
+     public String getTaskStatus() {
+         return taskStatus;
+     }
+
+   public String getDeveloperFirstName() {
+     return developerFirstName;
+   }
+    public String getDeveloperLastName() {
+        return developerLastName;
+    }
+ }

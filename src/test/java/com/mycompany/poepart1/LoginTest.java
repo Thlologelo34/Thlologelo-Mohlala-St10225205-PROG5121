@@ -11,13 +11,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class LoginExternalClassTest {
+public class LoginTest {
     
-    private LoginExternalClass user;
+    private Login user;
 
     @BeforeEach
     public void setUp() {
-        user = new LoginExternalClass("Kyl_1", "C&&sec@ke99!", "Thlologelo", "Mohlala");
+        user = new Login("Kyl_1", "C&&sec@ke99!", "Thlologelo", "Mohlala");
         user.registerUser("kyle!!!!!!!", "Password", "Thlologelo", "Mohlala");
     }
 
@@ -80,7 +80,7 @@ public class LoginExternalClassTest {
 // register user test
     @Test
     public void testRegisterUser_Valid() {
-        LoginExternalClass instance = new LoginExternalClass("Kyl_1", "C&&sec@ke99!", "Thlologelo", "Mohlala");
+        Login instance = new Login("Kyl_1", "C&&sec@ke99!", "Thlologelo", "Mohlala");
         String result = instance.registerUser("Kyl_1", "C&&sec@ke99!", "Thlologelo", "Mohlala");
         assertTrue(result.equals("Username and password successfully captured."));
     }
@@ -93,14 +93,14 @@ public class LoginExternalClassTest {
 
     @Test
     public void testRegisterUser_InvalidPassword() {
-        LoginExternalClass instance = new LoginExternalClass("Kyl_1", "password", "Thlologelo", "Mohlala");
+        Login instance = new Login("Kyl_1", "password", "Thlologelo", "Mohlala");
         String result = instance.registerUser("Kyl_1", "C&&sec@ke99!", "Thlologelo", "Mohlala");
         assertFalse(result.equals("password is not correctly formatted, please ensure that the password contains at least 8 characters, a capital letter, a number, a special character"));
     }
 // login test
     @Test
     public void testLoginUser_Successful() {
-                LoginExternalClass instance = new LoginExternalClass("Kyl_1", "C&&sec@ke99!", "Thlologelo", "Mohlala");
+                Login instance = new Login("Kyl_1", "C&&sec@ke99!", "Thlologelo", "Mohlala");
         String result = instance.registerUser("Kyl_1", "C&&sec@ke99!", "Thlologelo", "Mohlala");
 
         assertFalse(result.equals("Successful login"));
@@ -108,7 +108,7 @@ public class LoginExternalClassTest {
 
     @Test
     public void testLoginUser_Failed() {
-          LoginExternalClass instance = new LoginExternalClass("", "password", "Thlologelo", "Mohlala");
+          Login instance = new Login("", "password", "Thlologelo", "Mohlala");
         String result = instance.registerUser("Kyl_1", "C&&sec@ke99!", "Thlologelo", "Mohlala");
 
         assertFalse(result.equals("Falsed login"));
@@ -116,7 +116,7 @@ public class LoginExternalClassTest {
 //   return login Status check
     @Test
     public void testReturnLoginStatus_Success() {
-                  LoginExternalClass instance = new LoginExternalClass("Kyl_1", "password", "Thlologelo", "Mohlala");
+                  Login instance = new Login("Kyl_1", "password", "Thlologelo", "Mohlala");
 
         String result = instance.returnLoginStatus("Kyl_1", "C&&sec@ke99!");
         assertFalse(result.equals("Welcome Thlologelo, Mohlala! It is great to see you again."));

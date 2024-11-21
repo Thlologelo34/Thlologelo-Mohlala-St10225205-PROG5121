@@ -16,16 +16,16 @@ import java.util.regex.Pattern;
 
               // Class to manage user login and registration processes.This class handles user data and validates input for login.
  
-class LoginExternalClass {
+class Login {
     private String username;
     private String password;
     private String firstName;
     private String lastName;
-    private List <LoginExternalClass> users;
+    private List <Login> users;
     
     
     // Constructor to initialize user details and user list
-  LoginExternalClass(String username, String password, String firstName, String lastName){
+  Login(String username, String password, String firstName, String lastName){
           this.username = username;
            this.password = password;
            this.firstName = firstName;
@@ -90,13 +90,13 @@ class LoginExternalClass {
             return "password is not correctly formatted, please ensure that the password contains at least 8 characters, a capital letter, a number, a special character";
         }
   
-   users.add(new LoginExternalClass(username, password, firstName, lastName));
+   users.add(new Login(username, password, firstName, lastName));
     return "Username and password successfully captured.";
 }
             // method to login user
 
         public boolean loginUser(String username, String password) {
-        for (LoginExternalClass user : users) {
+        for (Login user : users) {
             if (user != null && user.getUsername().equals(username) && user.getPassword().equals(password)) {
                 return true;
             }
@@ -105,9 +105,9 @@ class LoginExternalClass {
     }
 // method to return login status
     public String returnLoginStatus(String username, String password) {
-        LoginExternalClass loggedInUser = null; 
+        Login loggedInUser = null; 
 // To hold the user if login is successful
-    for (LoginExternalClass user : users) {
+    for (Login user : users) {
         if (user != null && user.getUsername().equals(username) && user.getPassword().equals(password)) {
             loggedInUser = user; 
             break;
